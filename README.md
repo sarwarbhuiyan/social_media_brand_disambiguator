@@ -44,6 +44,7 @@ Note that the `pip` `IOError: [Errno 36 File name too long` error is related to 
 
 Note that generally I'm using Python 3 `__future__` imports, the code isn't tested with Python 3 but the porting should be straight-forward. sqlite only wants byte/strings for key indexing (not unicode strings).
 
+Note: If you don't have `cld` C++ library installed you may have to download and build it. See http://mzsanford.com/blog/introducing-libcld for how to do this. You may need a few things installed like automake in Mac OSX if you haven't got it already
 Tests
 -----
 
