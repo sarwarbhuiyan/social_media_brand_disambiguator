@@ -20,7 +20,7 @@ from matplotlib import cm
 from nltk.corpus import stopwords
 import unicodecsv
 import sql_convenience
-
+from tweet_tokenizer import TweetTokenizer
 
 ############
 # NOTE
@@ -106,13 +106,12 @@ if __name__ == "__main__":
     MIN_DF = 2
     vectorizer_binary = CountVectorizer(stop_words=stopWords, min_df=MIN_DF, binary=True)
     vectorizer_tfidf = TfidfVectorizer(stop_words=stopWords, min_df=MIN_DF)
-    vectorizer_dict = DictVectorizer()
+    vectorizer_dict = TweetTokenizer("Apple")
     #vectorizer = vectorizer_tfidf
     #vectorizer = vectorizer_binary
     vectorizer = vectorizer_dict
-    train_set_array = [Counter(s.split()) for s in train_set]
     
-    trainVectorizerArray = vectorizer.fit_transform(train_set_array).toarray()
+    trainVectorizerArray = vectorizer.fit_transform(train_set).toarray()
     print("Feature names (first 20):", vectorizer.get_feature_names()[:20], "...")
     print("Vectorized %d features" % (len(vectorizer.get_feature_names())))
 
@@ -202,7 +201,7 @@ if __name__ == "__main__":
     if args.validation_table:
         # make sparse training set using all of the test/train data (combined into
         # one set)
-        train_set_sparse = vectorizer.transform(train_set_array)
+        train_set_sparse = vectorizer.transform(train_set)
         # instantiate a local classifier
         clfl = clf.fit(train_set_sparse.todense(), target)
 
