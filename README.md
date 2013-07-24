@@ -126,6 +126,11 @@ Simple learning
 
 Use sklearn in a trivial way to classify in and out of class examples. learn1 uses Leave One Out Cross Validation with a Logistic Regression classifier using default text preparation methods, the results are pretty poor. Note that there is no real validation set (just an out of sample test for the 2 cases as a sanity check after training). This is a trivial classifier and isn't to be trusted for any real work.
 
+NOTE learn1.py will make use of nltk corpora stopwords. If it throws an error, you might need to run (from python shell)
+
+   >>> import nltk
+   >>> nltk.download('stopwords')
+
 NOTE first we have to make the destination table for learning, use SQLiteManager to copy scikit_validation_apple (right click on it and select Copy) to learn1_validation_apple, this gives us an identical copy in the sqlite database.
 
 NOTE that we expect to see exported `.csv` text files for in_class and out_class examples (see previous section).
