@@ -140,7 +140,7 @@ class TweetTokenizer():
             words = map((lambda x : x if emoticon_re.search(x) else x.lower()), words)
 
         #ADD A TAG IF CAPITALZED BRAND WORD FOUND
-        if unicode('Apple') in words:
+        if unicode(self.brand.capitalize()) in words:
             words.append(unicode("CAPITALIZED_BRAND"))
         return words
 
