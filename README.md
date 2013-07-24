@@ -128,8 +128,8 @@ Use sklearn in a trivial way to classify in and out of class examples. learn1 us
 
 NOTE learn1.py will make use of nltk corpora stopwords. If it throws an error, you might need to run (from python shell)
 
-   >>> import nltk
-   >>> nltk.download('stopwords')
+    >>> import nltk
+    >>> nltk.download('stopwords')
 
 NOTE first we have to make the destination table for learning, use SQLiteManager to copy scikit_validation_apple (right click on it and select Copy) to learn1_validation_apple, this gives us an identical copy in the sqlite database.
 
